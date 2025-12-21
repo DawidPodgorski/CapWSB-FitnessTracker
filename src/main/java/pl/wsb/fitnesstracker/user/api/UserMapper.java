@@ -1,15 +1,13 @@
-package pl.wsb.fitnesstracker.user.internal;
+package pl.wsb.fitnesstracker.user.api;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-import pl.wsb.fitnesstracker.user.api.User;
-import pl.wsb.fitnesstracker.user.api.UserDto;
-import pl.wsb.fitnesstracker.user.api.UserEmailDto;
-import pl.wsb.fitnesstracker.user.api.UserSimpleDto;
 
 @Component
-class UserMapper {
+@AllArgsConstructor
+public class UserMapper {
 
-    UserDto toDto(User user) {
+    public UserDto toDto(User user) {
         return new UserDto(user.getId(),
                 user.getFirstName(),
                 user.getLastName(),
@@ -17,7 +15,7 @@ class UserMapper {
                 user.getEmail());
     }
 
-    UserSimpleDto toSimpleDto(User user) {
+    public UserSimpleDto toSimpleDto(User user) {
         return new UserSimpleDto(
                 user.getId(),
                 user.getFirstName(),
@@ -25,7 +23,7 @@ class UserMapper {
         );
     }
 
-    User toEntity(UserDto userDto) {
+    public User toEntity(UserDto userDto) {
         return new User(
                 userDto.firstName(),
                 userDto.lastName(),
@@ -34,7 +32,7 @@ class UserMapper {
         );
     }
 
-    UserEmailDto toEmailDto(User user) {
+    public UserEmailDto toEmailDto(User user) {
         return new UserEmailDto(
                 user.getId(),
                 user.getEmail()

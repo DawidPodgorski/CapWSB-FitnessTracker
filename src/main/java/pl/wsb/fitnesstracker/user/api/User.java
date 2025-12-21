@@ -31,47 +31,6 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
-    public void setId(@Nullable Long id) {
-        this.id = id;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setBirthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    @Nullable
-    public Long getId() {
-        return id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public LocalDate getBirthdate() {
-        return birthdate;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
     public User(
             final String firstName,
             final String lastName,
