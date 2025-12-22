@@ -15,11 +15,16 @@ public class TrainingController {
     private final TrainingProvider trainingProvider;
     private final TrainingMapper trainingMapper;
 
-    public TrainingController(TrainingProvider trainingProvider, TrainingMapper trainingMapper) {
+    private TrainingController(TrainingProvider trainingProvider, TrainingMapper trainingMapper) {
         this.trainingProvider = trainingProvider;
         this.trainingMapper = trainingMapper;
     }
 
+    /**
+     * Retrieves a list of all trainings available in the system.
+     *
+     * @return a list of {@link TrainingDto} representing all trainings
+     */
     @GetMapping
     public List<TrainingDto> getAllTrainings() {
         return trainingProvider.getALLTrainings().stream()
@@ -27,6 +32,12 @@ public class TrainingController {
                 .toList();
     }
 
+    /**
+     * Retrieves all trainings associated with a specific user.
+     *
+     * @param userId the ID of the user whose trainings are to be retrieved
+     * @return a list of {@link TrainingDto} for the specified user
+     */
     @GetMapping("/{userId}")
     public List<TrainingDto> getTrainingsByUser(@PathVariable Long userId) {
         return trainingProvider.getTrainingsByUserId(userId).stream()

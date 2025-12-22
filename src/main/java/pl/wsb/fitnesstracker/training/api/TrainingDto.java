@@ -14,6 +14,14 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 
+/**
+ * Data Transfer Object (DTO) for Training representation.
+ * <p>
+ * Used to transfer training data between the client and the server
+ * without exposing the internal {@link Training} entity structure.
+ * This class includes the associated user information as {@link UserDto}.
+ * </p>
+ */
 public class TrainingDto {
     private Long id;
     private UserDto user;
